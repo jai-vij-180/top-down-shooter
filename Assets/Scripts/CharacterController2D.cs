@@ -18,7 +18,7 @@ public class CharacterController2D : MonoBehaviour {
 	
     void Update () 
      {
-     
+         
          if(Time.time >= coolDown)
          {
              if(Input.GetMouseButton(0))
