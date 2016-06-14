@@ -9,17 +9,18 @@ public class BulletController : MonoBehaviour {
     [SerializeField]
     bool IsInitialized;
     [Header("Bullet Settings")]
-    public float bulletSpeed = 5000;
+    public float bulletSpeed = 5;
     public float bulletCheckingDistance = 0.05f;
     public LayerMask WhatDoBulletsHit;
     public bool AutoDestroy;
     public float DestroyAfterSeconds=3f;
-
+    Rigidbody2D rb;
 	void Start () {
-        
+        rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(transform.up * bulletSpeed);
 	}
 
-    void Update()
+    void FixedUpdate()
     {
         if (IsInitialized)
         {
@@ -36,10 +37,13 @@ public class BulletController : MonoBehaviour {
         RaycastHit2D hit;
         hit = Physics2D.Raycast(transform.position, transform.up
            , bulletCheckingDistance, WhatDoBulletsHit);
+        Debug.DrawRay(transform.position, transform.up, Color.cyan);
 
-        if (hit.collider)
+        if (hit.collider)//if it hits anything
         {
-           var enemyThatWasHit = hit.collider.gameObject;
+           GameObject enemyThatWasHit = hit.collider.gameObject;
+           enemyThatWasHit.GetComponent<EnemyController>().health -= 20;
+           //Destroy(this.gameObject);
            print("die pls");
             
             //Damage enemy here
@@ -51,7 +55,7 @@ public class BulletController : MonoBehaviour {
     /// </summary>
     public void InitBullet(){
         
-        GetComponent<Rigidbody2D>().AddForce(transform.up * bulletSpeed);
+        //rb.AddForce(transform.up * bulletSpeed);
         if (AutoDestroy)
         {
             Destroy(this.gameObject, DestroyAfterSeconds);
