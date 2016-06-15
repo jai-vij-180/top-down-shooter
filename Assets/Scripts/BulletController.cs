@@ -43,21 +43,18 @@ public class BulletController : MonoBehaviour
         //Debug.DrawRay(transform.position, transform.up, Color.cyan);
 
         
-        if (hit.collider != null)//if it hits enemy 
+        if (hit.collider != null && hit.collider.tag == "enemy")//if it hits enemy 
         {
             //Debug.DrawRay(transform.position, hit.transform.position);
             //EditorApplication.isPaused = true;
             GameObject enemyThatWasHit = hit.collider.gameObject;
-            //if(enemyThatWasHit != null)
-            //    enemyThatWasHit.GetComponent<EnemyController>().isHit(bulletDamage);
-            //enemyThatWasHit = null;
+            enemyThatWasHit.GetComponent<EnemyController>().isHit(bulletDamage);
             Destroy(this.gameObject);
-
         }
-        //if(hit.collider)
-        //{
-        //    Destroy(this.gameObject);
-        //}
+        if(hit.collider)
+        {
+            Destroy(this.gameObject);
+        }
     }
     #region API
     /// <summary>
