@@ -23,10 +23,7 @@ public class EnemyController : MonoBehaviour {
             Destroy(gameObject);
             print("enemy down");
         }
-    //    if(isPlayerEnter)
-    //    {
-    //        moveAI();
-    //    }
+    
     }
 
     
