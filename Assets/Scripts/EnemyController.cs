@@ -29,16 +29,10 @@ public class EnemyController : MonoBehaviour {
     //    }
     }
 
-    //private void moveAI()
-    //{
-    //    transform.LookAt(playerTransform.position);
-    //    transform.position = Vector3.Lerp(transform.position, playerTransform.position, Time.deltaTime * moveSpeed);
-    //}
+    
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.tag == "Player")
-    //    isPlayerEnter = true;
-    //}
-
+    public void isHit(int damage)
+    {
+        health -= damage;
+    }
 }

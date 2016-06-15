@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: dfccd43c4e0bb5a488a97bcf22873d13
-timeCreated: 1464976834
+timeCreated: 1465910829
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: biocorp_1
+    21300002: Bullet
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -66,6 +67,17 @@ TextureImporter:
         - {x: -63, y: -18}
         - {x: 63, y: -18}
         - {x: 63, y: 18}
+    - name: Bullet
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 64
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 
